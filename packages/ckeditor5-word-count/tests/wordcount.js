@@ -132,6 +132,22 @@ describe( 'WordCount', () => {
 			expect( wordCountPlugin.words ).to.equal( 6 );
 		} );
 
+		it( 'should ignore apostrophes in words', () => {
+			expect( wordCountPlugin.words ).to.equal( 0 );
+
+			setModelData( model, '<paragraph>Foo\'bar</paragraph>' );
+			wordCountPlugin._refreshStats();
+			expect( wordCountPlugin.words ).to.equal( 1 );
+
+			setModelData( model, '<paragraph>Foobar\'</paragraph>' );
+			wordCountPlugin._refreshStats();
+			expect( wordCountPlugin.words ).to.equal( 1 );
+
+			setModelData( model, '<paragraph>\'Foobar\'</paragraph>' );
+			wordCountPlugin._refreshStats();
+			expect( wordCountPlugin.words ).to.equal( 1 );
+		} );
+
 		it( 'counts characters', () => {
 			setModelData( model, '<paragraph><$text foo="true">Hello</$text> world.</paragraph>' );
 

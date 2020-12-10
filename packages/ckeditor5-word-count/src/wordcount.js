@@ -137,8 +137,8 @@ export default class WordCount extends Plugin {
 			// {M} - A character intended to be combined with another character (e.g. accents, umlauts, enclosing boxes, etc.).
 			// {Pd} - Any kind of hyphen or dash.
 			// {Pc} - A punctuation character such as an underscore that connects words.
-			new RegExp( '[\\p{L}\\p{N}\\p{M}\\p{Pd}\\p{Pc}]+', 'gu' ) :
-			/[_\-a-zA-Z0-9À-ž]+/gu;
+			new RegExp( '[\\p{L}\\p{N}\\p{M}\\p{Pd}\\p{Pc}\']+', 'gu' ) :
+			/['_\-a-zA-Z0-9À-ž]+/gu;
 	}
 
 	/**
