@@ -148,6 +148,22 @@ describe( 'WordCount', () => {
 			expect( wordCountPlugin.words ).to.equal( 1 );
 		} );
 
+		it( 'should not count single apostrophe as a word', () => {
+			expect( wordCountPlugin.words ).to.equal( 0 );
+
+			setModelData( model, '<paragraph>Foo \' bar</paragraph>' );
+			wordCountPlugin._refreshStats();
+			expect( wordCountPlugin.words ).to.equal( 2 );
+		} );
+
+		it( 'should not count single hyphen as a word', () => {
+			expect( wordCountPlugin.words ).to.equal( 0 );
+
+			setModelData( model, '<paragraph>Foo - bar</paragraph>' );
+			wordCountPlugin._refreshStats();
+			expect( wordCountPlugin.words ).to.equal( 2 );
+		} );
+
 		it( 'counts characters', () => {
 			setModelData( model, '<paragraph><$text foo="true">Hello</$text> world.</paragraph>' );
 
