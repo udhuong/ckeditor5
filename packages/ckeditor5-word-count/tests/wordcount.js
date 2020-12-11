@@ -138,12 +138,12 @@ describe( 'WordCount', () => {
 			setModelData( model, '<paragraph>Foo\'bar</paragraph>' );
 			wordCountPlugin._refreshStats();
 			expect( wordCountPlugin.words ).to.equal( 1 );
+		} );
 
-			setModelData( model, '<paragraph>Foobar\'</paragraph>' );
-			wordCountPlugin._refreshStats();
-			expect( wordCountPlugin.words ).to.equal( 1 );
+		it( 'should ignore dots in words', () => {
+			expect( wordCountPlugin.words ).to.equal( 0 );
 
-			setModelData( model, '<paragraph>\'Foobar\'</paragraph>' );
+			setModelData( model, '<paragraph>Foo.bar</paragraph>' );
 			wordCountPlugin._refreshStats();
 			expect( wordCountPlugin.words ).to.equal( 1 );
 		} );
