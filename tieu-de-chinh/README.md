@@ -1,12 +1,10 @@
----
-description: Hướng dẫn sử dụng trang web 123job
----
-
-# Introduction
+# Tiêu đề chính
 
 ## Getting Super Powers
 
 Becoming a super hero is a fairly straight forward process:
+
+
 
 ```
 $ give me super-powers
@@ -18,12 +16,20 @@ $ give me super-powers
 
 Once you're strong enough, save the world:
 
+{% tabs %}
+{% tab title="First Tab" %}
+
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
+
 {% code title="hello.sh" %}
 ```bash
 # Ain't no code for that yet, sorry
 echo 'You got to trust me on this, I saved the world'
 ```
 {% endcode %}
-
-
 
